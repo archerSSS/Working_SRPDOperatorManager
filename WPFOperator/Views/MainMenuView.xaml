@@ -1,0 +1,81 @@
+﻿<Window x:Name="MainWindow"
+        x:Class="WPFOperator.Views.MainMenuView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainMenuView" Height="600" Width="750"
+        IsEnabled="{Binding Path=IsChildWindowClosed}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="1.3*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Background="#155585"></Border>
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#11dd44" BorderThickness="6">
+            <Button Click="EmployerView_Click" Command="{Binding Path=ChildWindowCommand}">
+                <TextBlock FontSize="20" Text="Сотрудники"></TextBlock>
+            </Button>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="1" BorderBrush="#eeaa55" BorderThickness="6">
+            <Button Click="CardView_Click" Command="{Binding Path=ChildWindowCommand}">
+                <TextBlock FontSize="20" Text="Список карт"></TextBlock>
+            </Button>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="1" BorderBrush="#2233ff" BorderThickness="6">
+            <Button Click="AddCardType_Click" Command="{Binding Path=ChildWindowCommand}">
+                <TextBlock FontSize="20" Text="Виды карт"></TextBlock>
+            </Button>
+        </Border>
+        <!--MediaElement x:Name="MainMenuMedia" Panel.ZIndex="-1" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="7" LoadedBehavior="Play">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <MediaTimeline Source="{Binding Path=ApplicationDirection}" Storyboard.TargetName="MainMenuMedia"  
+                                    RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </-->
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" Background="#155585"></Border>
+        <Border Grid.Row="2" Grid.Column="4" CornerRadius="1" BorderBrush="Gold" BorderThickness="4">
+            <UniformGrid Background="Black" Rows="1">
+                <TextBlock Background="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="Gold" Text="1000"></TextBlock>
+                <!--MediaElement x:Name="MainMenuMediaCoin" Panel.ZIndex="-1" LoadedBehavior="Play">
+                    <MediaElement.Triggers>
+                        <EventTrigger RoutedEvent="MediaElement.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <MediaTimeline Source="Media/coin.mp4" Storyboard.TargetName="MainMenuMediaCoin"  
+                                    RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </MediaElement.Triggers>
+                </-->
+            </UniformGrid>
+        </Border>
+    </Grid>
+</Window>

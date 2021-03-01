@@ -1,0 +1,40 @@
+﻿<Window x:Name="EmployerListWindow"
+        x:Class="WPFOperator.Views.EmployerListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFOperator.Views"
+        mc:Ignorable="d"
+        Title="EmployerListView" Height="300" Width="400"
+        IsEnabled="{Binding ElementName=EmployerListWindow, Path=IsChildWindowClosed}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.9*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Background="#155585"></Border>
+        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Список сотрудников"></TextBlock>
+        <ComboBox x:Name="ComboEmployers" Grid.Row="2" Grid.Column="2" ItemsSource="{Binding Path=Employers}" SelectedItem="{Binding Path=Employer, Mode=TwoWay}"></ComboBox>
+        <Button Grid.Row="4" Grid.Column="2" Content="Добавить сотрудника" Click="EmployerAdd_Click"></Button>
+        <Button Grid.Row="6" Grid.Column="2" Content="Свойства сотрудника" Click="EmployerUpdate_Click"></Button>
+        <Button Grid.Row="8" Grid.Column="2" Content="Удалить сотрудника" IsEnabled="True" Click="EmployerRemove_Click"></Button>
+        <Button Grid.Row="1" Grid.Column="0" Background="#11aa11" Content="◄" Click="Return_Click"></Button>
+        <Border Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="6" Background="#155585"></Border>
+    </Grid>
+</Window>

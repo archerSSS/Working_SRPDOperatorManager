@@ -1,0 +1,44 @@
+﻿<Window x:Class="WPFOperator.Views.CardViews.CardAddTypeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFOperator.Views.CardViews"
+        mc:Ignorable="d"
+        Title="CardAddTypeView" Height="350" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585"></Border>
+        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="Название типа карт"></TextBlock>
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="#25fa22"  BorderThickness="4">
+            <TextBox x:Name="TextType" FontSize="20" VerticalAlignment="Center"></TextBox>
+        </Border>
+        <Button Grid.Column="1" Grid.Row="4" Click="Add_Click">
+            <TextBlock FontSize="20" Text="Применить"></TextBlock>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="6" Click="Cancel_Click">
+            <TextBlock FontSize="20" Text="Отмена"></TextBlock>
+        </Button>
+        <Border Grid.Column="3" Grid.Row="2" Grid.RowSpan="5" BorderThickness="2" BorderBrush="Brown">
+            <ListBox ItemsSource="{Binding Path=CardTypesList}"></ListBox>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585"></Border>
+    </Grid>
+</Window>
