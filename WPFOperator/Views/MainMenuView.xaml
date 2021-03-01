@@ -43,7 +43,7 @@
                 <TextBlock FontSize="20" Text="Виды карт"></TextBlock>
             </Button>
         </Border>
-        <!--MediaElement x:Name="MainMenuMedia" Panel.ZIndex="-1" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="7" LoadedBehavior="Play">
+        <MediaElement x:Name="MainMenuMedia" Panel.ZIndex="-1" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="7" LoadedBehavior="Play">
             <MediaElement.Triggers>
                 <EventTrigger RoutedEvent="MediaElement.Loaded">
                     <EventTrigger.Actions>
@@ -56,12 +56,12 @@
                     </EventTrigger.Actions>
                 </EventTrigger>
             </MediaElement.Triggers>
-        </-->
+        </MediaElement>
         <Border Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" Background="#155585"></Border>
         <Border Grid.Row="2" Grid.Column="4" CornerRadius="1" BorderBrush="Gold" BorderThickness="4">
             <UniformGrid Background="Black" Rows="1">
                 <TextBlock Background="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="Gold" Text="1000"></TextBlock>
-                <!--MediaElement x:Name="MainMenuMediaCoin" Panel.ZIndex="-1" LoadedBehavior="Play">
+                <MediaElement x:Name="MainMenuMediaCoin" Panel.ZIndex="-1" LoadedBehavior="Play">
                     <MediaElement.Triggers>
                         <EventTrigger RoutedEvent="MediaElement.Loaded">
                             <EventTrigger.Actions>
@@ -74,7 +74,7 @@
                             </EventTrigger.Actions>
                         </EventTrigger>
                     </MediaElement.Triggers>
-                </-->
+                </MediaElement>
             </UniformGrid>
         </Border>
     </Grid>
