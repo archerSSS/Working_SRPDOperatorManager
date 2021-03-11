@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CardViews\CardManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CardViews\CardTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +140,9 @@
     </Compile>
     <Compile Include="Views\CardViews\CardListView.xaml.cs">
       <DependentUpon>CardListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardViews\CardManagerView.xaml.cs">
+      <DependentUpon>CardManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CardViews\CardTypeView.xaml.cs">
       <DependentUpon>CardTypeView.xaml</DependentUpon>
