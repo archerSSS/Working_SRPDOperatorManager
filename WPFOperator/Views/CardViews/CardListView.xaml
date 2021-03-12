@@ -43,7 +43,8 @@
             <TextBlock Grid.Column="4" Grid.Row="0" Text="Фильтр" FontSize="14" Foreground="#b16111"></TextBlock>
             <ComboBox x:Name="ComboFilter" Grid.Column="4" Grid.Row="1" Margin="0,0,40,0" ItemsSource="{Binding Path=CardTypesList}" SelectedItem="- - -" SelectionChanged="ComboFilter_SelectionChanged"></ComboBox>
             <Button Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,0" Content="Поиск" Click="ListCards_Click"></Button>
-            <Button Grid.Column="1" Grid.Row="2" Margin="0,0,150,0" Content="Добавить\Удалить карты" Click="NumbersEdit_Click"></Button>
+            <Button Grid.Column="1" Grid.Row="1" Margin="0,0,150,5" Content="Мастер карт" Click="MasterCardView_Click"></Button>
+            <Button Grid.Column="1" Grid.Row="2" Margin="0,5,150,0" Content="Добавить\Удалить карты" Click="NumbersEdit_Click"></Button>
             <Button Grid.Column="2" Grid.Row="1" Margin="0,0,0,0" Content="Create" Click="CreateFile_Click" Command="{Binding Path=CommandFileData}"/>
             <Button Grid.Column="2" Grid.Row="2" Margin="0,0,0,0" Content="Print" Click="PrintFile_Click" Command="{Binding Path=CommandPrintFileData}"/>
             <DataGrid x:Name="DataEmployers" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,10,0,0" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Path=Employers}" SelectedItem="{Binding Path=Employer, Mode=TwoWay}">

@@ -324,15 +324,7 @@ namespace WPFOperator.Views
             }
         }*/
 
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            if (!OpeningChildWindow)
-            {
-                MainMenuView MMV = new MainMenuView();
-                MMV.DataContext = DataContext;
-                MMV.Show();
-            }
-        }
+        
 
         /*protected override void OnClosed(EventArgs e)
         {
@@ -348,6 +340,26 @@ namespace WPFOperator.Views
         private void CreateFile_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void MasterCardView_Click(object sender, RoutedEventArgs e)
+        {
+            OpeningChildWindow = true;
+
+            CardManagerView CMV = new CardManagerView();
+            CMV.DataContext = DataContext;
+            CMV.Show();
+            Close();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (!OpeningChildWindow)
+            {
+                MainMenuView MMV = new MainMenuView();
+                MMV.DataContext = DataContext;
+                MMV.Show();
+            }
         }
     }
 }

@@ -59,6 +59,7 @@ namespace WPFOperator.ViewModels
             Employers = manager.LoadEmployers();
             RemovedCards = manager.LoadCardsArchive();
             cardTypesDictionary = manager.LoadTypes();
+            cardMaster = new CardManager();
             key = manager.LoadKey();
             IsChildWindowClosed = true;
 
@@ -78,6 +79,7 @@ namespace WPFOperator.ViewModels
 
             for (int i = 1; i < cardTypesDictionary.Count + 1; i++)
                 cardTypesList.Add(cardTypesDictionary[i]);
+
 
             CardTypesList.Add("- - -");
         }
@@ -319,15 +321,6 @@ namespace WPFOperator.ViewModels
 
         public void TransferCardFrom(string cardNumber, string EmployerFrom, DateTime date)
         {
-            // CARDS DISPOSING
-            /*foreach (CardObject CO in Cards)
-            {
-                if (CO.Number == cardNumber)
-                {
-                    Card = CO;
-                    break;
-                }
-            }*/
             foreach (EmployerObject EO in Employers)
             {
                 foreach (CardObject CO in EO.HandledCards)
@@ -357,6 +350,29 @@ namespace WPFOperator.ViewModels
             }
 
             Card = null;
+        }
+
+        public void MasterTransfer(int mode, DateTime date)
+        {
+            //CardObject CO = (CardObject)card;
+            int m = Int32.Parse(mode.ToString());
+
+            
+            if (m == 0) // Give to Employer
+            {
+                CardMaster.RemodeCard(Card);
+                Employer.ReturnCard(Card, date);
+                Employer.AddCardTransfer(Card, date);
+                Card.EmployerName = Employer.FullName;
+                SaveEmployers();
+            }
+            else if (m == 1) // back from Employer
+            {
+
+                //SaveEmployers();
+            }
+            
+            //Card = null;
         }
 
         public void FormActionsData(DateTime bgn, DateTime end)

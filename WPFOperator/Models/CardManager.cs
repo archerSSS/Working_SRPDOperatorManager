@@ -15,6 +15,11 @@ namespace WPFOperator.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public void RemodeCard(CardObject CO)
+        {
+            HandledCards.Remove(CO);
+        }
+
         protected void OnPropertyChanged(string pn)
         {
             if (PropertyChanged != null)

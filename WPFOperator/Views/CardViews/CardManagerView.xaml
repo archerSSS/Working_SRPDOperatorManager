@@ -5,41 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFOperator.Views.CardViews"
         mc:Ignorable="d"
-        Title="CardManagerView" Height="450" Width="800">
+        Title="CardManagerView" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585" Margin="0,0,0,20"></Border>
-        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkOrange" BorderThickness="2">
-            <ListBox></ListBox>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkOrange" BorderThickness="2">
+            <ListBox ItemsSource="{Binding Path=CardMaster.HandledCards}" SelectedItem="{Binding Path=Card}"></ListBox>
         </Border>
-        
-        <UniformGrid Grid.Row="2" Grid.Column="2" Rows="2">
-            <Button Margin="10,10,10,40">
+        <Calendar x:Name="CalendarTransfer" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2"></Calendar>
+        <UniformGrid Grid.Row="3" Grid.Column="2" Rows="2">
+            <Button Margin="20,10,20,40" Click="MasterTransferTo_Click">
                 <TextBlock FontSize="20" FontWeight="Bold" Text="Передать ›››"></TextBlock>
             </Button>
-            <Button Margin="10,40,10,10">
+            <Button Margin="20,40,20,10" Click="MasterTransferFrom_Click">
                 <TextBlock FontSize="20" FontWeight="Bold" Text="‹‹‹ Вернуть"></TextBlock>
             </Button>
         </UniformGrid>
 
-        <ComboBox Grid.Row="1" Grid.Column="3" Margin="0,20,0,20" FontSize="16" 
+        <ComboBox Grid.Row="2" Grid.Column="3" Margin="0,40,0,20" FontSize="16" 
                   ItemsSource="{Binding Path=Employers}" 
                   SelectedItem="{Binding Path=Employer}"></ComboBox>
-        <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" BorderBrush="DarkOrange" BorderThickness="2">
-            <ListBox ItemsSource="{Binding Path=Employer.HandledCards}"></ListBox>
+        <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" BorderBrush="DarkOrange" BorderThickness="2">
+            <ListBox ItemsSource="{Binding Path=Employer.HandledCards}" SelectedItem="{Binding Path=Card}"></ListBox>
         </Border>
-        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585" Margin="0,20,0,0"></Border>
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585" Margin="0,20,0,0"></Border>
     </Grid>
 </Window>
