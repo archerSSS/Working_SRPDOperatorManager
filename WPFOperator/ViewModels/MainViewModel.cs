@@ -24,6 +24,7 @@ namespace WPFOperator.ViewModels
         private int collectedBits;
         private EmployerObject employer;
         private CardObject card;
+        private CardManager cardMaster;
         private Dictionary<int, string> cardTypesDictionary;
         private ObservableCollection<string> cardTypesList;
         //private ObservableCollection<CardObject> cards;
@@ -40,6 +41,7 @@ namespace WPFOperator.ViewModels
         public string ApplicationDirection { get { return applicationDirection; } set { applicationDirection = value; OnPropertyChanged("ApplicationDirection"); } }
         public EmployerObject Employer { get { return employer; } set { employer = value; OnPropertyChanged("Employer"); } }
         public CardObject Card { get { return card; } set { card = value; OnPropertyChanged("Card"); } }
+        public CardManager CardMaster { get { return cardMaster; } set { cardMaster = value; OnPropertyChanged("CardMaster"); } }
         //public ObservableCollection<CardObject> Cards { get { return cards; } set { cards = value; OnPropertyChanged("Cards"); } }
         public ObservableCollection<CardObject> RemovedCards { get { return removedCards; } set { removedCards = value; OnPropertyChanged("RemovedCards"); } }
         public ObservableCollection<string> CardTypesList { get { return cardTypesList; } set { cardTypesList = value; OnPropertyChanged("CardTypesList"); }  }

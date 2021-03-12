@@ -124,6 +124,7 @@
     <Compile Include="Models\CardAction.cs" />
     <Compile Include="Models\CardActionsHandler.cs" />
     <Compile Include="Models\CardActionState.cs" />
+    <Compile Include="Models\CardManager.cs" />
     <Compile Include="Models\CardObject.cs" />
     <Compile Include="Models\EmployerObject.cs" />
     <Compile Include="Models\LauncherKeyObject.cs" />

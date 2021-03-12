@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="CardManagerView" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585" Margin="0,0,0,20"></Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="DarkOrange" BorderThickness="2">
+            <ListBox></ListBox>
+        </Border>
         
+        <UniformGrid Grid.Row="2" Grid.Column="2" Rows="2">
+            <Button Margin="10,10,10,40">
+                <TextBlock FontSize="20" FontWeight="Bold" Text="Передать ›››"></TextBlock>
+            </Button>
+            <Button Margin="10,40,10,10">
+                <TextBlock FontSize="20" FontWeight="Bold" Text="‹‹‹ Вернуть"></TextBlock>
+            </Button>
+        </UniformGrid>
+
+        <ComboBox Grid.Row="1" Grid.Column="3" Margin="0,20,0,20" FontSize="16" 
+                  ItemsSource="{Binding Path=Employers}" 
+                  SelectedItem="{Binding Path=Employer}"></ComboBox>
+        <Border Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" BorderBrush="DarkOrange" BorderThickness="2">
+            <ListBox ItemsSource="{Binding Path=Employer.HandledCards}"></ListBox>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Background="#155585" Margin="0,20,0,0"></Border>
     </Grid>
 </Window>

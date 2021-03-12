@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -177,5 +178,11 @@ namespace WPFOperator.Views.CardViews
             }
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            CardListView CLV = new CardListView();
+            CLV.DataContext = DataContext;
+            CLV.Show();
+        }
     }
 }

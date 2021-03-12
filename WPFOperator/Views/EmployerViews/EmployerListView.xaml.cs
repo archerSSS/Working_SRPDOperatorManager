@@ -23,45 +23,39 @@ namespace WPFOperator.Views
     /// </summary>
     public partial class EmployerListView : Window
     {
+        private bool OpeningChildWindow;
+
         public EmployerListView()
         {
             InitializeComponent();
+
+            OpeningChildWindow = false;
         }
-
-        private Window ChildWindow;
-
-        public bool IsChildWindowClosed
-        {
-            get { return (bool)GetValue(IsChildWindowClosedProperty); }
-            set { SetValue(IsChildWindowClosedProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for IsChildWindowClosed.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IsChildWindowClosedProperty =
-            DependencyProperty.Register("IsChildWindowClosed", typeof(bool), typeof(EmployerListView), new PropertyMetadata(true));
-
 
 
         private void EmployerAdd_Click(object sender, RoutedEventArgs e)
         {
-            IsChildWindowClosed = false;
+            //IsChildWindowClosed = false;
+            OpeningChildWindow = true;
             EmployerAddView EAV = new EmployerAddView();
             EAV.DataContext = DataContext;
             EAV.Show();
-            ChildWindow = EAV;
+            Close();
+            //ChildWindow = EAV;
         }
 
         private void EmployerUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (ComboEmployers.SelectedItem != null)
             {
-                IsChildWindowClosed = false;
+                //IsChildWindowClosed = false;
+                OpeningChildWindow = true;
                 ((MainViewModel)DataContext).SetReservedEmployerName();
                 EmployerUpdateView EUV = new EmployerUpdateView();
                 EUV.DataContext = DataContext;
-                //Close();
                 EUV.Show();
-                ChildWindow = EUV;
+                Close();
+                //ChildWindow = EUV;
             }
         }
 
@@ -92,16 +86,24 @@ namespace WPFOperator.Views
 
         protected override void OnActivated(EventArgs e)
         {
-            if (ChildWindow != null && !ChildWindow.IsVisible)
+            
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (!OpeningChildWindow)
             {
-                IsChildWindowClosed = true;
+                MainMenuView MMV = new MainMenuView();
+                MMV.DataContext = DataContext;
+                MMV.Show();
             }
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            if (ChildWindow != null) ChildWindow.Close();
-            ((MainViewModel)DataContext).ChildWindowCommand.Execute(null);
+            
+            /*if (ChildWindow != null) ChildWindow.Close();
+            ((MainViewModel)DataContext).ChildWindowCommand.Execute(null);*/
         }
     }
 }

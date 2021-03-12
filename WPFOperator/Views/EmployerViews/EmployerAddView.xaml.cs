@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,13 @@ namespace WPFOperator.Views
             ELV.DataContext = DataContext;
             Close();
             ELV.Show();*/
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            EmployerListView ELV = new EmployerListView();
+            ELV.DataContext = DataContext;
+            ELV.Show();
         }
 
         protected override void OnClosed(EventArgs e)

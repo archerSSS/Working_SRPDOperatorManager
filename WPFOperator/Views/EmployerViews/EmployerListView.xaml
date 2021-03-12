@@ -6,8 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFOperator.Views"
         mc:Ignorable="d"
-        Title="EmployerListView" Height="300" Width="400"
-        IsEnabled="{Binding ElementName=EmployerListWindow, Path=IsChildWindowClosed}">
+        Title="EmployerListView" Height="300" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"></ColumnDefinition>

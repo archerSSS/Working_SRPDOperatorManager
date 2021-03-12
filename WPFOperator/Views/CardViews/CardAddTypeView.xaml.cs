@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,18 +31,36 @@ namespace WPFOperator.Views.CardViews
             if (TextType.Text != "")
             {
                 ((MainViewModel)DataContext).AddNewType(TextType.Text);
+
+                MainMenuView MMV = new MainMenuView();
+                MMV.DataContext = DataContext;
+                MMV.Show();
                 Close();
             }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            MainMenuView MMV = new MainMenuView();
+            MMV.DataContext = DataContext;
+            MMV.Show();
             Close();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            MainMenuView MMV = new MainMenuView();
+            MMV.DataContext = DataContext;
+            MMV.Show();
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            ((MainViewModel)DataContext).ChildWindowCommand.Execute(null);
+            /*MainMenuView MMV = new MainMenuView();
+            MMV.DataContext = DataContext;
+            MMV.Show();*/
+            //Close();
+            //((MainViewModel)DataContext).ChildWindowCommand.Execute(null);
         }
     }
 }

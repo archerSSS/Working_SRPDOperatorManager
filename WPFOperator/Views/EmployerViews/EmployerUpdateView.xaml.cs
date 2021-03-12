@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,14 @@ namespace WPFOperator.Views.EmployerViews
         {
             ((MainViewModel)DataContext).RestoreEmployerName();
             Return();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            ((MainViewModel)DataContext).RestoreEmployerName();
+            EmployerListView ELV = new EmployerListView();
+            ELV.DataContext = DataContext;
+            ELV.Show();
         }
 
         private void Return()

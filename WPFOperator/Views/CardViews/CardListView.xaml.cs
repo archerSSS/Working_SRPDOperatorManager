@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,9 @@ namespace WPFOperator.Views
         private int MonthActions;
         private int DayActions;
 
-        private Window ChildWindow;
+        private bool OpeningChildWindow;
+
+        //private Window ChildWindow;
 
         public CardListView()
         {
@@ -46,9 +49,11 @@ namespace WPFOperator.Views
             Day = dt.Day;
             CurrentDate = Year + "." + Month + "." + Day;
 
+            OpeningChildWindow = false;
         }
 
-        public bool IsChildWindowClosed
+        // Depricated
+        /*public bool IsChildWindowClosed
         {
             get { return (bool)GetValue(IsChildWindowClosedProperty); }
             set { SetValue(IsChildWindowClosedProperty, value); }
@@ -56,7 +61,7 @@ namespace WPFOperator.Views
 
         // Using a DependencyProperty as the backing store for IsChildWindowClosed.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsChildWindowClosedProperty =
-            DependencyProperty.Register("IsChildWindowClosed", typeof(bool), typeof(CardListView), new PropertyMetadata(true));
+            DependencyProperty.Register("IsChildWindowClosed", typeof(bool), typeof(CardListView), new PropertyMetadata(true));*/
 
         public string CurrentDate
         {
@@ -302,27 +307,38 @@ namespace WPFOperator.Views
         {
             if (DataEmployers.SelectedItem != null)
             {
-                IsChildWindowClosed = false;
+                OpeningChildWindow = true;
+
                 CardAddView CAV = new CardAddView();
                 CAV.DataContext = DataContext;
                 CAV.Show();
-                ChildWindow = CAV;
+                Close();
             }
         }
 
-        protected override void OnActivated(EventArgs e)
+        /*protected override void OnActivated(EventArgs e)
         {
             if (ChildWindow != null && !ChildWindow.IsVisible)
             {
                 IsChildWindowClosed = true;
             }
+        }*/
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (!OpeningChildWindow)
+            {
+                MainMenuView MMV = new MainMenuView();
+                MMV.DataContext = DataContext;
+                MMV.Show();
+            }
         }
 
-        protected override void OnClosed(EventArgs e)
+        /*protected override void OnClosed(EventArgs e)
         {
             if (ChildWindow != null) ChildWindow.Close();
             ((MainViewModel)DataContext).ChildWindowCommand.Execute(null);
-        }
+        }*/
 
         private void PrintFile_Click(object sender, RoutedEventArgs e)
         {

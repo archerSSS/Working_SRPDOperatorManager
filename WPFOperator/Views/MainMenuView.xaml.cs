@@ -43,17 +43,20 @@ namespace WPFOperator.Views
             EmployerListView ELV = new EmployerListView();
             ELV.DataContext = DataContext;
             ELV.Show();
+            Close();
         }
 
         private void CardView_Click(object sender, RoutedEventArgs e)
         {
             CardListView CLV = new CardListView();
             CLV.DataContext = DataContext;
-            string appLocation = Directory.GetCurrentDirectory();
+            //string appLocation = Directory.GetCurrentDirectory();
             //CLV.MTL.Source = new Uri(appLocation + "/Media/pmr.mp4");
             CLV.Show();
+            Close();
         }
 
+        // Check for uselessNESSSSSSSSSSSSSSSSS
         private void OperationView_Click(object sender, RoutedEventArgs e)
         {
             ActionListView ALV = new ActionListView();
@@ -66,11 +69,12 @@ namespace WPFOperator.Views
             CardAddTypeView CATV = new CardAddTypeView();
             CATV.DataContext = DataContext;
             CATV.Show();
+            Close();
         }
 
         protected override void OnClosed(EventArgs e)
         {
-            System.Environment.Exit(0);
+            //System.Environment.Exit(0);
         }
     }
 }
